@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Omniauth
+module OmniAuth
   module Twitter2
     VERSION = "0.1.0"
   end

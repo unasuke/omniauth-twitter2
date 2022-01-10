@@ -4,7 +4,7 @@ require_relative "lib/omniauth/twitter2/version"
 
 Gem::Specification.new do |spec|
   spec.name = "omniauth-twitter2"
-  spec.version = Omniauth::Twitter2::VERSION
+  spec.version = OmniAuth::Twitter2::VERSION
   spec.authors = ["Yusuke Nakamura"]
   spec.email = ["yusuke1994525@gmail.com"]
 

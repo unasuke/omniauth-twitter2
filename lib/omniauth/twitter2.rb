@@ -2,7 +2,7 @@
 
 require_relative "twitter2/version"
 
-module Omniauth
+module OmniAuth
   module Twitter2
     class Error < StandardError; end
     # Your code goes here...
