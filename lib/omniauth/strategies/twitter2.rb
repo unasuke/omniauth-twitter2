@@ -36,7 +36,9 @@ module OmniAuth
 
       def raw_info
         @raw_info ||= access_token.get(
-          "/2/users/me?&user.fields=created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld",
+          "/2/users/me?" \
+          "&user.fields=created_at,description,entities,id,location,name,pinned_tweet_id," \
+          "profile_image_url,protected,public_metrics,url,username,verified,withheld",
           { headers: { "Authorization" => "Bearer #{access_token.token}" } }
         ).parsed || {}
       end
@@ -46,9 +48,11 @@ module OmniAuth
       end
 
       def build_access_token
-        options.token_params.merge!(headers: {
-                                      "Authorization" => "Basic #{Base64.strict_encode64("#{options[:client_id]}:#{options[:client_secret]}")}"
-                                    })
+        options.token_params.merge!(
+          headers: {
+            "Authorization" => "Basic #{Base64.strict_encode64("#{options[:client_id]}:#{options[:client_secret]}")}"
+          }
+        )
         super
       end
     end
