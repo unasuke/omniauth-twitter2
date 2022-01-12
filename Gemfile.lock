@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     omniauth-twitter2 (0.1.0)
+      omniauth
       omniauth-oauth2 (~> 1.0)
 
 GEM
