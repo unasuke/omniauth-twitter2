@@ -2,7 +2,7 @@
 
 require "test_helper"
 
-class TestOmniAuth::Twitter2 < Minitest::Test
+class TestOmniAuthTwitter2 < Minitest::Test
   def test_that_it_has_a_version_number
     refute_nil ::OmniAuth::Twitter2::VERSION
   end
