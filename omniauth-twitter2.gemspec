@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "TBA"
   spec.description = "TBA"
   spec.homepage = "https://github.com/unasuke/omniauth-twitter2"
-  spec.license = "MIT"
+  spec.license = "Apache-2.0"
   spec.required_ruby_version = ">= 2.6.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
