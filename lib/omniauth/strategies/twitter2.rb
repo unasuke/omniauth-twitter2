@@ -43,6 +43,9 @@ module OmniAuth
         ).parsed || {}
       end
 
+      # https://github.com/zquestz/omniauth-google-oauth2/blob/475efe41ecfcf04b63921bd723ccf6fad429d1b1/lib/omniauth/strategies/google_oauth2.rb#L105
+      # https://github.com/simi/omniauth-facebook/blob/e1e572db2e9464871c98148621df1bbbe1e9f9c3/lib/omniauth/strategies/facebook.rb#L88
+      # https://github.com/omniauth/omniauth-oauth2/commit/85fdbe117c2a4400d001a6368cc359d88f40abc7
       def callback_url
         options[:callback_url] || (full_host + script_name + callback_path)
       end
