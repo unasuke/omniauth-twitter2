@@ -104,6 +104,10 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 * [omniauth/omniauth-oauth2: An abstract OAuth2 strategy for OmniAuth.](https://github.com/omniauth/omniauth-oauth2)
 * [nov/twitter_oauth2: Twitter OAuth 2.0 Client Library in Ruby](https://github.com/nov/twitter_oauth2)
 
+## Sample App
+* <https://twitter-login-app.onrender.com/>
+  * <https://github.com/unasuke/twitter-login-app>
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/unasuke/omniauth-twitter2. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/unasuke/omniauth-twitter2/blob/main/CODE_OF_CONDUCT.md).
