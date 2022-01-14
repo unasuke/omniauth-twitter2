@@ -1,4 +1,5 @@
 # OmniAuth::Twitter2
+[![test](https://github.com/unasuke/omniauth-twitter2/actions/workflows/main.yml/badge.svg)](https://github.com/unasuke/omniauth-twitter2/actions/workflows/main.yml)
 
 This gem provides a OmniAuth strategy for authenticating with Twitter OAuth2.
 
