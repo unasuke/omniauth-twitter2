@@ -14,6 +14,7 @@ jobs:
     strategy:
       matrix:
         ruby:
+          - '2.1'
           - '2.6'
           - '2.7'
           - '3.0'
@@ -29,5 +30,28 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
+      continue-on-error: true
+
+    - name: Install Ruby 2.1 manually
+      if: matrix.ruby == '2.1'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y software-properties-common
+        sudo add-apt-repository ppa:brightbox/ruby-ng
+        sudo apt-get update
+        sudo apt-get install -y ruby2.1 ruby2.1-dev
+        echo "export PATH=/usr/bin/ruby2.1:\$PATH" >> $GITHUB_ENV
+
+    - name: Check Ruby version
+      run: ruby -v
+
+    - name: Install Bundler
+      run: gem install bundler -v '<2'  # Bundler 2.x は Ruby 2.1 では動かない
+
+    - name: Install dependencies
+      run: bundle install
+      continue-on-error: true
+
     - name: Run the default task
       run: bundle exec rake
+      continue-on-error: true

@@ -5,18 +5,18 @@ require_relative "lib/omniauth/twitter2/version"
 Gem::Specification.new do |spec|
   spec.name = "omniauth-twitter2"
   spec.version = OmniAuth::Twitter2::VERSION
-  spec.authors = ["Yusuke Nakamura"]
-  spec.email = ["yusuke1994525@gmail.com"]
+  spec.authors = ["Atsushi Kyoya"]
+  spec.email = ["kyoya.atsushi@cyberwave.jp"]
 
   spec.summary = "Twitter OAuth2 strategy for OmniAuth"
   spec.description = "Twitter OAuth2 strategy for OmniAuth. '2' means OAuth 2.0."
-  spec.homepage = "https://github.com/unasuke/omniauth-twitter2"
+  spec.homepage = "https://github.com/kyoya-atsushi-cyberwave/omniauth-twitter2"
   spec.license = "Apache-2.0"
-  spec.required_ruby_version = ">= 2.6.0"
+  spec.required_ruby_version = ">= 2.1.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = "https://github.com/unasuke/omniauth-twitter2/blob/main/CHANGELOG.md"
+  spec.metadata["changelog_uri"] = "https://github.com/kyoya-atsushi-cyberwave/omniauth-twitter2/blob/main/CHANGELOG.md"
   spec.metadata["rubygems_mfa_required"] = "true"
 
   # Specify which files should be added to the gem when it is released.
