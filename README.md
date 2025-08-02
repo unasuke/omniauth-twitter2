@@ -50,7 +50,7 @@ end
       "image" => "https://pbs.twimg.com/profile_images/580019517608218624/KzEZSzUy_normal.jpg",
       "urls" => {
         "Website" => "https://t.co/NCFLB8wDkx",
-        "Twitter" => "https://twitter.com/yu_suke1994"
+        "Twitter" => "https://x.com/yu_suke1994"
       }
     },
     "credentials" => {
@@ -101,8 +101,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## References
 
 * Twitter official resources
-  * [twitterdev/Twitter-API-v2-sample-code: Sample code for the Twitter API v2 endpoints](https://github.com/twitterdev/Twitter-API-v2-sample-code)
-  * [OAuth 2.0 Making requests on behalf of users | Docs | Twitter Developer Platform](https://developer.twitter.com/en/docs/authentication/oauth-2-0/user-access-token)
+  * [xdevplatform/Twitter-API-v2-sample-code: Sample code for the Twitter API v2 endpoints](https://github.com/xdevplatform/Twitter-API-v2-sample-code)
+  * [OAuth 2.0 - X](https://docs.x.com/fundamentals/authentication/oauth-2-0/overview)
 * [arunagw/omniauth-twitter: OmniAuth strategy for Twitter](https://github.com/arunagw/omniauth-twitter)
 * [omniauth/omniauth-oauth2: An abstract OAuth2 strategy for OmniAuth.](https://github.com/omniauth/omniauth-oauth2)
 * [nov/twitter_oauth2: Twitter OAuth 2.0 Client Library in Ruby](https://github.com/nov/twitter_oauth2)

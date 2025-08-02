@@ -26,7 +26,7 @@ class TestOmniAuthTwitter2 < Minitest::Test
   end
 
   def test_it_has_correct_site
-    assert_equal "https://api.twitter.com", strategy.options.client_options.site
+    assert_equal "https://api.x.com", strategy.options.client_options.site
   end
 
   def test_it_has_correct_token_url
@@ -34,7 +34,7 @@ class TestOmniAuthTwitter2 < Minitest::Test
   end
 
   def test_it_has_correct_authorize_url
-    assert_equal "https://twitter.com/i/oauth2/authorize", strategy.options.client_options.authorize_url
+    assert_equal "https://x.com/i/oauth2/authorize", strategy.options.client_options.authorize_url
   end
 
   def test_it_has_correct_info_hash

@@ -7,10 +7,11 @@ module OmniAuth
   module Strategies
     class Twitter2 < OmniAuth::Strategies::OAuth2 # :nodoc:
       option :name, "twitter2"
+      # https://docs.x.com/fundamentals/authentication/oauth-2-0/overview
       option :client_options, {
-        site: "https://api.twitter.com",
+        site: "https://api.x.com",
         token_url: "2/oauth2/token",
-        authorize_url: "https://twitter.com/i/oauth2/authorize"
+        authorize_url: "https://x.com/i/oauth2/authorize"
       }
       option :pkce, true
 
@@ -25,7 +26,7 @@ module OmniAuth
           image: raw_info["data"]["profile_image_url"],
           urls: {
             Website: raw_info["data"]["url"],
-            Twitter: "https://twitter.com/#{raw_info["data"]["username"]}"
+            Twitter: "https://x.com/#{raw_info["data"]["username"]}"
           }
         }
       end
