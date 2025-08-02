@@ -17,7 +17,7 @@ def mock_auth_sample # rubocop:disable Metrics/MethodLength
       "image" => "https://pbs.twimg.com/profile_images/580019517608218624/KzEZSzUy_normal.jpg",
       "urls" => {
         "Website" => "https://t.co/NCFLB8wDkx",
-        "Twitter" => "https://twitter.com/yu_suke1994"
+        "Twitter" => "https://x.com/yu_suke1994"
       }
     },
     "credentials" => {
