@@ -6,6 +6,23 @@ require "omniauth-oauth2"
 module OmniAuth
   module Strategies
     class Twitter2 < OmniAuth::Strategies::OAuth2 # :nodoc:
+      # Available OAuth 2.0 scopes for X (Twitter) API v2
+      # Reference: https://developer.x.com/en/docs/authentication/oauth-2-0/authorization-code
+      AVAILABLE_SCOPES = %w[
+        tweet.read tweet.write tweet.moderate.write
+        users.email users.read
+        follows.read follows.write
+        offline.access space.read
+        mute.read mute.write
+        like.read like.write
+        list.read list.write
+        block.read block.write
+        bookmark.read bookmark.write
+        media.write
+      ].freeze
+
+      DEFAULT_SCOPE = "tweet.read users.read"
+
       option :name, "twitter2"
       # https://docs.x.com/fundamentals/authentication/oauth-2-0/overview
       option :client_options, {
@@ -14,6 +31,9 @@ module OmniAuth
         authorize_url: "https://x.com/i/oauth2/authorize"
       }
       option :pkce, true
+      option :authorize_params, {
+        scope: DEFAULT_SCOPE
+      }
 
       uid { raw_info["data"]["id"] }
 
@@ -47,6 +67,22 @@ module OmniAuth
       # https://github.com/zquestz/omniauth-google-oauth2/blob/475efe41ecfcf04b63921bd723ccf6fad429d1b1/lib/omniauth/strategies/google_oauth2.rb#L105
       # https://github.com/simi/omniauth-facebook/blob/e1e572db2e9464871c98148621df1bbbe1e9f9c3/lib/omniauth/strategies/facebook.rb#L88
       # https://github.com/omniauth/omniauth-oauth2/commit/85fdbe117c2a4400d001a6368cc359d88f40abc7
+      def authorize_params
+        super.tap do |params|
+          # Ensure scope is included in authorize params
+          params[:scope] ||= options[:authorize_params][:scope] || DEFAULT_SCOPE
+
+          # Validate scopes if provided
+          if params[:scope]
+            requested_scopes = params[:scope].split
+            invalid_scopes = requested_scopes - AVAILABLE_SCOPES
+            if !invalid_scopes.empty? && defined?(Rails)
+              Rails.logger.warn "Invalid Twitter OAuth2 scopes requested: #{invalid_scopes.join(", ")}"
+            end
+          end
+        end
+      end
+
       def callback_url
         options[:callback_url] || (full_host + script_name + callback_path)
       end
