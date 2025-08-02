@@ -100,9 +100,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## References
 
-* Twitter official resources
-  * [twitterdev/Twitter-API-v2-sample-code: Sample code for the Twitter API v2 endpoints](https://github.com/twitterdev/Twitter-API-v2-sample-code)
-  * [OAuth 2.0 Making requests on behalf of users | Docs | Twitter Developer Platform](https://developer.twitter.com/en/docs/authentication/oauth-2-0/user-access-token)
+* X (formerly Twitter) official resources
+  * [xdevplatform/Twitter-API-v2-sample-code: Sample code for the Twitter API v2 endpoints](https://github.com/xdevplatform/Twitter-API-v2-sample-code)
+  * [How to connect to endpoints using OAuth 2.0 Authorization Code Flow with PKCE | X Developer Platform](https://docs.x.com/resources/fundamentals/authentication/oauth-2-0/user-access-token)
 * [arunagw/omniauth-twitter: OmniAuth strategy for Twitter](https://github.com/arunagw/omniauth-twitter)
 * [omniauth/omniauth-oauth2: An abstract OAuth2 strategy for OmniAuth.](https://github.com/omniauth/omniauth-oauth2)
 * [nov/twitter_oauth2: Twitter OAuth 2.0 Client Library in Ruby](https://github.com/nov/twitter_oauth2)
