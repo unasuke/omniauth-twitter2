@@ -12,7 +12,7 @@ def mock_auth_sample # rubocop:disable Metrics/MethodLength
     "uid" => "108252390",
     "info" => {
       "name" => "うなすけ",
-      "email" => nil,
+      "email" => "user@example.com",
       "nickname" => "yu_suke1994",
       "description" => "帰って寝たい",
       "image" => "https://pbs.twimg.com/profile_images/580019517608218624/KzEZSzUy_normal.jpg",
@@ -34,6 +34,7 @@ end
 def raw_info_sample # rubocop:disable Metrics/MethodLength
   {
     "data" => {
+      "confirmed_email" => "user@example.com",
       "profile_image_url" => "https://pbs.twimg.com/profile_images/580019517608218624/KzEZSzUy_normal.jpg",
       "url" => "https://t.co/NCFLB8wDkx",
       "public_metrics" => {
