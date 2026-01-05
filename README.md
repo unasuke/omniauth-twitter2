@@ -8,7 +8,9 @@ This gem provides a OmniAuth strategy for authenticating with Twitter OAuth2.
 
 ## Email Support
 
-As of April 2025, Twitter/X API v2 supports returning the user's email address via the `confirmed_email` field. To request the email, include the `users.email` scope:
+As of April 2025, Twitter/X API v2 supports returning the user's email address via the `confirmed_email` field. See the [X Developer Community announcement](https://devcommunity.x.com/t/introducing-confirmed-email-in-user-object/233461).
+
+To request the email, include the `users.email` scope:
 
 ```ruby
 scope: "tweet.read users.read users.email"
@@ -117,17 +119,17 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## References
 
-- Twitter official resources
-  - [xdevplatform/Twitter-API-v2-sample-code: Sample code for the Twitter API v2 endpoints](https://github.com/xdevplatform/Twitter-API-v2-sample-code)
-  - [OAuth 2.0 - X](https://docs.x.com/fundamentals/authentication/oauth-2-0/overview)
-- [arunagw/omniauth-twitter: OmniAuth strategy for Twitter](https://github.com/arunagw/omniauth-twitter)
-- [omniauth/omniauth-oauth2: An abstract OAuth2 strategy for OmniAuth.](https://github.com/omniauth/omniauth-oauth2)
-- [nov/twitter_oauth2: Twitter OAuth 2.0 Client Library in Ruby](https://github.com/nov/twitter_oauth2)
+* Twitter official resources
+  * [xdevplatform/Twitter-API-v2-sample-code: Sample code for the Twitter API v2 endpoints](https://github.com/xdevplatform/Twitter-API-v2-sample-code)
+  * [OAuth 2.0 - X](https://docs.x.com/fundamentals/authentication/oauth-2-0/overview)
+* [arunagw/omniauth-twitter: OmniAuth strategy for Twitter](https://github.com/arunagw/omniauth-twitter)
+* [omniauth/omniauth-oauth2: An abstract OAuth2 strategy for OmniAuth.](https://github.com/omniauth/omniauth-oauth2)
+* [nov/twitter_oauth2: Twitter OAuth 2.0 Client Library in Ruby](https://github.com/nov/twitter_oauth2)
 
 ## Sample App
 
-- <https://twitter-login-app.onrender.com/>
-  - <https://github.com/unasuke/twitter-login-app>
+* <https://twitter-login-app.onrender.com/>
+  * <https://github.com/unasuke/twitter-login-app>
 
 ## Contributing
 
