@@ -8,3 +8,5 @@ gemspec
 gem "minitest"
 gem "rake"
 gem "rubocop"
+
+gem "minitest-mock" if Gem::Version.create(RUBY_VERSION) >= Gem::Version.create("3.1")
