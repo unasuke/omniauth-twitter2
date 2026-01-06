@@ -50,7 +50,7 @@ class TestOmniAuthTwitter2 < Minitest::Test
   def test_email_is_nil_when_not_provided
     subject = strategy
     raw_info_without_email = raw_info_sample.dup
-    raw_info_without_email["data"] = raw_info_without_email["data"].except("confirmed_email")
+    raw_info_without_email["data"] = raw_info_without_email["data"].tap { |h| h.delete("confirmed_email") }
     subject.stub(:raw_info, raw_info_without_email) do
       assert_nil subject.info[:email]
     end
