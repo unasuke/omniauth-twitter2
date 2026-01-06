@@ -3,6 +3,7 @@
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
 require "omniauth/twitter2"
 
+require "minitest/mock"
 require "minitest/autorun"
 
 def mock_auth_sample # rubocop:disable Metrics/MethodLength
