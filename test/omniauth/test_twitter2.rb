@@ -53,4 +53,42 @@ class TestOmniAuthTwitter2 < Minitest::Test
       assert_equal "108252390", subject.uid
     end
   end
+
+  def test_it_has_available_scopes_constant
+    assert_equal 20, OmniAuth::Strategies::Twitter2::AVAILABLE_SCOPES.length
+    assert_includes OmniAuth::Strategies::Twitter2::AVAILABLE_SCOPES, "tweet.read"
+    assert_includes OmniAuth::Strategies::Twitter2::AVAILABLE_SCOPES, "users.read"
+    assert_includes OmniAuth::Strategies::Twitter2::AVAILABLE_SCOPES, "users.email"
+    assert_includes OmniAuth::Strategies::Twitter2::AVAILABLE_SCOPES, "media.write"
+    assert_includes OmniAuth::Strategies::Twitter2::AVAILABLE_SCOPES, "offline.access"
+  end
+
+  def test_it_has_default_scope
+    assert_equal "tweet.read users.read", OmniAuth::Strategies::Twitter2::DEFAULT_SCOPE
+  end
+
+  def test_it_has_default_authorize_params
+    subject = strategy
+    assert_equal "tweet.read users.read", subject.options.authorize_params[:scope]
+  end
+
+  def test_authorize_params_includes_scope
+    subject = strategy
+    params = subject.authorize_params
+    assert_equal "tweet.read users.read", params[:scope]
+  end
+
+  def test_authorize_params_with_custom_scope
+    subject = strategy(authorize_params: { scope: "tweet.read tweet.write users.read" })
+    params = subject.authorize_params
+    assert_equal "tweet.read tweet.write users.read", params[:scope]
+  end
+
+  def test_authorize_params_validates_scopes
+    # This test ensures that invalid scopes are handled gracefully
+    subject = strategy(authorize_params: { scope: "invalid.scope tweet.read" })
+    params = subject.authorize_params
+    # The method should still return params even with invalid scopes (just warn)
+    assert_equal "invalid.scope tweet.read", params[:scope]
+  end
 end
