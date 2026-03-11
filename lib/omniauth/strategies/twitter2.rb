@@ -20,7 +20,7 @@ module OmniAuth
       info do
         {
           name: raw_info["data"]["name"],
-          email: nil,
+          email: raw_info["data"]["confirmed_email"],
           nickname: raw_info["data"]["username"],
           description: raw_info["data"]["description"],
           image: raw_info["data"]["profile_image_url"],
@@ -38,7 +38,7 @@ module OmniAuth
       def raw_info
         @raw_info ||= access_token.get(
           "/2/users/me?" \
-          "&user.fields=created_at,description,entities,id,location,name,pinned_tweet_id," \
+          "user.fields=confirmed_email,created_at,description,entities,id,location,name,pinned_tweet_id," \
           "profile_image_url,protected,public_metrics,url,username,verified,withheld",
           { headers: { "Authorization" => "Bearer #{access_token.token}" } }
         ).parsed || {}

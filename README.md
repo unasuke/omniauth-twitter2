@@ -1,10 +1,28 @@
 # OmniAuth::Twitter2
+
 [![test](https://github.com/unasuke/omniauth-twitter2/actions/workflows/main.yml/badge.svg)](https://github.com/unasuke/omniauth-twitter2/actions/workflows/main.yml)
 [![GitHub license](https://img.shields.io/github/license/unasuke/omniauth-twitter2)](https://github.com/unasuke/omniauth-twitter2/blob/main/LICENSE.txt)
 [![Gem Version](https://badge.fury.io/rb/omniauth-twitter2.svg)](https://rubygems.org/gems/omniauth-twitter2)
 
 This gem provides a OmniAuth strategy for authenticating with Twitter OAuth2.
 
+## Email Support
+
+As of April 2025, Twitter/X API v2 supports returning the user's email address via the `confirmed_email` field. See the [X Developer Community announcement](https://devcommunity.x.com/t/introducing-confirmed-email-in-user-object/233461).
+
+To request the email, include the `users.email` scope:
+
+```ruby
+scope: "tweet.read users.read users.email"
+```
+
+**Note:** The email will only be returned if:
+
+1. Your Twitter app has "Request email from users" enabled in the Developer Portal
+2. The user has a confirmed email address on their Twitter account
+3. The user grants permission during OAuth
+
+If these conditions aren't met, `email` will be `nil` in the auth hash.
 
 ## Installation
 
@@ -33,7 +51,7 @@ $ gem install omniauth-twitter2
 ```ruby
 # config/initializers/omniauth.rb
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter2, ENV["TWITTER_CLIENT_ID"], ENV["TWITTER_CLIENT_SECRET"], callback_path: '/auth/twitter2/callback', scope: "tweet.read users.read"
+  provider :twitter2, ENV["TWITTER_CLIENT_ID"], ENV["TWITTER_CLIENT_SECRET"], callback_path: '/auth/twitter2/callback', scope: "tweet.read users.read users.email"
 end
 ```
 
@@ -44,7 +62,7 @@ end
     "uid" => "108252390",
     "info" => {
       "name" => "うなすけ",
-      "email" => nil,
+      "email" => "user@example.com", # nil if users.email scope not granted or email not confirmed
       "nickname" => "yu_suke1994",
       "description" => "帰って寝たい",
       "image" => "https://pbs.twimg.com/profile_images/580019517608218624/KzEZSzUy_normal.jpg",
@@ -61,6 +79,7 @@ end
     "extra" => {
       "raw_info" => {
         "data" => {
+          "confirmed_email" => "user@example.com", # only present if users.email scope granted
           "profile_image_url" => "https://pbs.twimg.com/profile_images/580019517608218624/KzEZSzUy_normal.jpg",
           "url" => "https://t.co/NCFLB8wDkx",
           "public_metrics" => {
@@ -108,6 +127,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 * [nov/twitter_oauth2: Twitter OAuth 2.0 Client Library in Ruby](https://github.com/nov/twitter_oauth2)
 
 ## Sample App
+
 * <https://twitter-login-app.onrender.com/>
   * <https://github.com/unasuke/twitter-login-app>
 
