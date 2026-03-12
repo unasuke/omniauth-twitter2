@@ -4,11 +4,11 @@
 [![GitHub license](https://img.shields.io/github/license/unasuke/omniauth-twitter2)](https://github.com/unasuke/omniauth-twitter2/blob/main/LICENSE.txt)
 [![Gem Version](https://badge.fury.io/rb/omniauth-twitter2.svg)](https://rubygems.org/gems/omniauth-twitter2)
 
-This gem provides a OmniAuth strategy for authenticating with Twitter OAuth2.
+This gem provides a OmniAuth strategy for authenticating with X (formerly known as Twitter) OAuth2.
 
 ## Email Support
 
-As of April 2025, Twitter/X API v2 supports returning the user's email address via the `confirmed_email` field. See the [X Developer Community announcement](https://devcommunity.x.com/t/introducing-confirmed-email-in-user-object/233461).
+As of April 2025, X API v2 supports returning the user's email address via the `confirmed_email` field. See the [X Developer Community announcement](https://devcommunity.x.com/t/introducing-confirmed-email-in-user-object/233461).
 
 To request the email, include the `users.email` scope:
 
@@ -18,8 +18,8 @@ scope: "tweet.read users.read users.email"
 
 **Note:** The email will only be returned if:
 
-1. Your Twitter app has "Request email from users" enabled in the Developer Portal
-2. The user has a confirmed email address on their Twitter account
+1. Your X app has "Request email from users" enabled in the Developer Portal
+2. The user has a confirmed email address on their X account
 3. The user grants permission during OAuth
 
 If these conditions aren't met, `email` will be `nil` in the auth hash.
@@ -119,8 +119,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## References
 
-* Twitter official resources
-  * [xdevplatform/Twitter-API-v2-sample-code: Sample code for the Twitter API v2 endpoints](https://github.com/xdevplatform/Twitter-API-v2-sample-code)
+* X official resources
+  * [xdevplatform/samples: Sample code for the X API v2 endpoints](https://github.com/xdevplatform/samples)
   * [OAuth 2.0 - X](https://docs.x.com/fundamentals/authentication/oauth-2-0/overview)
 * [arunagw/omniauth-twitter: OmniAuth strategy for Twitter](https://github.com/arunagw/omniauth-twitter)
 * [omniauth/omniauth-oauth2: An abstract OAuth2 strategy for OmniAuth.](https://github.com/omniauth/omniauth-oauth2)

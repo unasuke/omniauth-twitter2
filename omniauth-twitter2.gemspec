@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Yusuke Nakamura"]
   spec.email = ["yusuke1994525@gmail.com"]
 
-  spec.summary = "Twitter OAuth2 strategy for OmniAuth"
-  spec.description = "Twitter OAuth2 strategy for OmniAuth. '2' means OAuth 2.0."
+  spec.summary = "X (formerly known as Twitter) OAuth2 strategy for OmniAuth"
+  spec.description = "X (formerly known as Twitter) OAuth2 strategy for OmniAuth. '2' means OAuth 2.0, not successor of omniauth-twitter gem."
   spec.homepage = "https://github.com/unasuke/omniauth-twitter2"
   spec.license = "Apache-2.0"
   spec.required_ruby_version = ">= 2.6.0"
