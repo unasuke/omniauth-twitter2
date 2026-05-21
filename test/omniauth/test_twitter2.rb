@@ -62,4 +62,14 @@ class TestOmniAuthTwitter2 < Minitest::Test
       assert_equal "108252390", subject.uid
     end
   end
+
+  def test_it_requests_email_when_required
+    subject = strategy(scope: "tweet.read users.read users.email")
+    assert_includes subject.send(:build_user_fields_query), "confirmed_email"
+  end
+
+  def test_it_does_not_requests_email_when_not_required
+    subject = strategy(scope: "tweet.read users.read")
+    refute_includes subject.send(:build_user_fields_query), "confirmed_email"
+  end
 end

@@ -38,8 +38,7 @@ module OmniAuth
       def raw_info
         @raw_info ||= access_token.get(
           "/2/users/me?" \
-          "user.fields=confirmed_email,created_at,description,entities,id,location,name,pinned_tweet_id," \
-          "profile_image_url,protected,public_metrics,url,username,verified,withheld",
+          "user.fields=#{build_user_fields_query}",
           { headers: { "Authorization" => "Bearer #{access_token.token}" } }
         ).parsed || {}
       end
@@ -58,6 +57,28 @@ module OmniAuth
           }
         )
         super
+      end
+
+      private
+
+      def build_user_fields_query
+        if users_email_required?
+          user_fields_query_base.push("confirmed_email")
+        else
+          user_fields_query_base
+        end
+          .join(",")
+      end
+
+      def user_fields_query_base
+        %w[
+          created_at description entities id location name pinned_tweet_id
+          profile_image_url protected public_metrics url username verified withheld
+        ]
+      end
+
+      def users_email_required?
+        options[:scope].split(/\s+/).include?("users.email")
       end
     end
   end
